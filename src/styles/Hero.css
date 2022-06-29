@@ -49,7 +49,8 @@
     z-index: 1;
     right: 0;
     left: 0;
-    background: #100f17;
+    background: #010b2e;
+    border-bottom: 1px solid #937b7b;
 }
 
 #logo {
@@ -198,11 +199,11 @@ button#create {
 
   #header {
     
-    height: 100px;
+    height: 70px;
     /* border: 0.001px solid red; */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
