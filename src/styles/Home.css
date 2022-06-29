@@ -1,5 +1,9 @@
 body {
-  background-color: #100f17;
+  background-image: url('../../assets/background.jpg');
+  /* background-size: 100% 100%; */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-color: black;
 }
 
 #home {
