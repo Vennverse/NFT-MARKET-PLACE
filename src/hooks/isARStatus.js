@@ -11,8 +11,8 @@ export const useARStatus = (data) => {
   useEffect(() => {
     if (data == null) console.log("bos")
     let src = data.split('.');
-    if (src[src.length - 1] == "glb") update(true);
-  }, [isSupport])
+    if (src[src.length - 1] === "glb") update(true);
+  }, [isSupport, data])
 
   return isSupport;
 }

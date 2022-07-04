@@ -34,7 +34,12 @@ const Select = ({items,onChange}) => {
       <ul className="dropdown-menu" role="listbox" aria-expanded="false" ref={optionRef} >
         
         {items && items.map((item,index)=>(
-            <li role="option" tabIndex={index} key={index} onClick={() => setSelect(item)} >
+          <li 
+              role="option" 
+              aria-selected="true" 
+              tabIndex={index} 
+              key={index} 
+              onClick={() => setSelect(item)} >
             {item}
           </li>
         ))}
