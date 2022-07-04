@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation, Navigate } from "react-router";
 import Card from "../components/base/Card";
 import "../styles/NFTDetail.css";
-import { ColorExtractor } from "react-color-extractor";
+// import { ColorExtractor } from "react-color-extractor";
 import Button from "../components/base/Button";
 import { FaEthereum } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
@@ -18,7 +18,7 @@ import { useARStatus } from "../hooks/isARStatus";
 const NFTDetail = () => {
   const isMobile = useMobile();
 
-  const [colors, setColors] = useState([]);
+  const [colors, setColors] = useState(['#031a3c']);
 
   const [isLike, setIsLike] = useState(false);
   
@@ -57,9 +57,11 @@ const NFTDetail = () => {
             //Detail Content
             <div id="detail-content">
              {isARSupport ? <model-viewer ar-scale="auto" ar ar-modes="webxr scene-viewer quick-look" id="arDetail" loading="eager" camera-controls auto-rotate src={state.item.src} > </model-viewer> 
-             : <> <ColorExtractor getColors={getColors}>
-                <img id="detail-image" src={state.item.src} />
-              </ColorExtractor></>}
+             : <> 
+                {/* <ColorExtractor getColors={getColors}> */}
+                  <img id="detail-image" src={state.item.src} />
+                {/* </ColorExtractor> */}
+              </>}
 
               <div id="detail-info" style={{}}>
                 <div id='detail-info-container'>
