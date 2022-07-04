@@ -1,16 +1,16 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import { useNavigate } from "react-router-dom";
-import { useLocation, Navigate } from "react-router";
+// import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 import Card from "../components/base/Card";
 import "../styles/NFTDetail.css";
 // import { ColorExtractor } from "react-color-extractor";
 import Button from "../components/base/Button";
 import { FaEthereum } from "react-icons/fa";
-import { AiOutlineHeart, AiFillHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useMobile } from "../hooks/isMobile";
-import { hotDropsData } from "../constants/MockupData";
-import NFTCard from "../components/NFTCard";
+// import { hotDropsData } from "../constants/MockupData";
+// import NFTCard from "../components/NFTCard";
 import { useARStatus } from "../hooks/isARStatus";
 
 
@@ -26,11 +26,11 @@ const NFTDetail = () => {
 
   const like = () => setIsLike(!isLike);
 
-  const getColors = (colors) => {
-    setColors((c) => [...c, ...colors]);
-  };
+  // const getColors = (colors) => {
+  //   setColors((c) => [...c, ...colors]);
+  // };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { state } = useLocation();
 
@@ -59,7 +59,7 @@ const NFTDetail = () => {
              {isARSupport ? <model-viewer ar-scale="auto" ar ar-modes="webxr scene-viewer quick-look" id="arDetail" loading="eager" camera-controls auto-rotate src={state.item.src} > </model-viewer> 
              : <> 
                 {/* <ColorExtractor getColors={getColors}> */}
-                  <img id="detail-image" src={state.item.src} />
+                  <img id="detail-image" alt="img" src={state.item.src} />
                 {/* </ColorExtractor> */}
               </>}
 
