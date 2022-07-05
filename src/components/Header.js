@@ -1,49 +1,59 @@
-import react, { useContext } from "react";
+// import react, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useEthers, useEtherBalance } from "@usedapp/core";
+import { useEthers } from "@usedapp/core";
 import { useState } from "react";
 
 const Header = (props) => {
+  const { activateBrowserWallet, account } = useEthers();
+  // const etherBalance = useEtherBalance(account);
 
-    const {activateBrowserWallet, account} = useEthers();
-    const etherBalance = useEtherBalance(account);
+  const handleWallet = () => {
+    activateBrowserWallet();
+  };
 
-    const handleWallet = () => {
-      activateBrowserWallet();
+  const downloadMetamask = () => {
+    window.location.href = "https://chrome.google.com/webstore/search/metamask";
+  };
+
+  const [isMeta] = useState(() => {
+    if (typeof window.ethereum !== "undefined") {
+      return true;
     }
+    return false;
+  });
 
-    const downloadMetamask = () => {
-      window.location.href = "https://chrome.google.com/webstore/search/metamask";
-    }
+  return (
+    <div id="header">
+      <Link to="/" id="logo">
+        NFT Room
+      </Link>
 
-    const [isMeta, setMetaStatus] = useState(() => {
-      if (typeof window.ethereum !== 'undefined') {
-        return true;
-      }
-      return false;
-    });
+      <div id="link-containers">
+        <a href="!#">Start Hunting</a>
+        <a href="!#">Dark NFTs</a>
+        <a href="!#">Community</a>
+        <a href="!#">Craft NFT</a>
 
-    return (
-        <div id="header">
-        <Link to='/' id='logo'>NFT Room</Link>
-
-        <div id="link-containers">
-          <a>Start Hunting</a>
-          <a>Dark NFTs</a>
-          <a>Community</a>
-          <a>Craft NFT</a>
-
-          {isMeta && <button id="connect-wallet" onClick={handleWallet} >{!account ? 'Connect Wallet' : account}</button>}
-          {!isMeta && 
-            <button id="download-metamask" onClick={downloadMetamask} >
-              <div>
-                <img src="https://docs.metamask.io/metamask-fox.svg" height="17px"/>
-                <span>&nbsp;&nbsp;Download Metamask</span>
-              </div>
-            </button>}
-        </div>
+        {isMeta && (
+          <button id="connect-wallet" onClick={handleWallet}>
+            {!account ? "Connect Wallet" : account}
+          </button>
+        )}
+        {!isMeta && (
+          <button id="download-metamask" onClick={downloadMetamask}>
+            <div>
+              <img
+                src="https://docs.metamask.io/metamask-fox.svg"
+                height="17px"
+                alt="gal"
+              />
+              <span>&nbsp;&nbsp;Download Metamask</span>
+            </div>
+          </button>
+        )}
       </div>
-    );
-}
+    </div>
+  );
+};
 
 export default Header;

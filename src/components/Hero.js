@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import "../styles/Hero.css";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
@@ -27,7 +27,9 @@ const Hero = () => {
         <button id="explore" onClick={goExplore}>
           Explore
         </button>
-        <button id="create" onClick={goCreate}>Create</button>
+        <button id="create" onClick={goCreate}>
+          Create
+        </button>
       </div>
     </div>
   );
